@@ -244,7 +244,7 @@ public class MyReview extends AppCompatActivity {
 
 
             }
-        }, 2700);
+        }, 2300);
 
 
 

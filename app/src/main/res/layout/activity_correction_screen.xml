@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReviewScreen">
+    tools:context=".CorrectionScreen">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -97,6 +97,7 @@
                     android:layout_weight="5"
                     android:paddingRight="10dp"
                     android:text="도로명 주소"
+                    android:textColor="@color/colorAccent"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -425,9 +426,17 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
                 android:text="후기 작성"
                 android:textColor="@color/colorPrimaryDark" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/line" />
 
             <EditText
                 android:id="@+id/review_text"

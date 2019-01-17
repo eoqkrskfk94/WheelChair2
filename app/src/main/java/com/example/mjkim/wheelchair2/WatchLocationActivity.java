@@ -9,15 +9,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.mjkim.wheelchair2.Convert.GeoTrans;
 import com.example.mjkim.wheelchair2.Convert.GeoTransPoint;
 import com.example.mjkim.wheelchair2.NaverSearch.NaverLocationList;
-import com.example.mjkim.wheelchair2.navermap.NMapCalloutCustomOldOverlay;
-import com.example.mjkim.wheelchair2.navermap.NMapPOIflagType;
-import com.example.mjkim.wheelchair2.navermap.NMapViewerResourceProvider;
+import com.example.mjkim.wheelchair2.NaverMap.NMapCalloutCustomOldOverlay;
+import com.example.mjkim.wheelchair2.NaverMap.NMapPOIflagType;
+import com.example.mjkim.wheelchair2.NaverMap.NMapViewerResourceProvider;
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapController;
 import com.nhn.android.maps.NMapOverlay;

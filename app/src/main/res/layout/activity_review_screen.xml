@@ -97,6 +97,7 @@
                     android:layout_weight="5"
                     android:paddingRight="10dp"
                     android:text="도로명 주소"
+                    android:textColor="@color/colorAccent"
                     android:textSize="18sp" />
             </LinearLayout>
 

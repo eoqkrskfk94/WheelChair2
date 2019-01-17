@@ -53,14 +53,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="15dp"
+            android:paddingTop="4dp"
             android:text="등록한 후기 갯수 : "
-            android:textSize="20dp" />
+            android:textSize="17dp" />
 
         <TextView
             android:id="@+id/review_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp" />
+            android:textSize="17dp" />
 
 
     </LinearLayout>

@@ -27,13 +27,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mjkim.wheelchair2.NameSearch.FirebaseJson;
 import com.example.mjkim.wheelchair2.NaverSearch.NaverLocationList;
 import com.example.mjkim.wheelchair2.Review.ReviewList;
-import com.example.mjkim.wheelchair2.WatchReview.MoreReviewActivity;
-import com.example.mjkim.wheelchair2.navermap.NMapCalloutCustomOldOverlay;
-import com.example.mjkim.wheelchair2.navermap.NMapPOIflagType;
-import com.example.mjkim.wheelchair2.navermap.NMapViewerResourceProvider;
+import com.example.mjkim.wheelchair2.NaverMap.NMapCalloutCustomOldOverlay;
+import com.example.mjkim.wheelchair2.NaverMap.NMapPOIflagType;
+import com.example.mjkim.wheelchair2.NaverMap.NMapViewerResourceProvider;
 
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapCompassManager;
@@ -106,8 +104,16 @@ public class FindNearLocationActivity extends NMapActivity{
     private NMapMyLocationOverlay mMyLocationOverlay;
     private NMapLocationManager mMapLocationManager;
     private NMapCompassManager mMapCompassManager;
+    private static final int REQUEST_CODE_LOCATION = 2;
 
     private NGeoPoint mGeoPoint;
+
+
+
+
+
+
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -167,20 +173,6 @@ public class FindNearLocationActivity extends NMapActivity{
 
         mMapViewerResourceProvider = new NMapViewerResourceProvider(this);
         mOverlayManager = new NMapOverlayManager(this, mMapView, mMapViewerResourceProvider);
-
-
-//        // 권한받는 방법 2
-//        if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(FindNearLocationActivity.this,
-//                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
-//                    1);
-//        }
-//        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(FindNearLocationActivity.this,
-//                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-//                    1);
-//        }
-
 
 
 
@@ -387,16 +379,37 @@ public class FindNearLocationActivity extends NMapActivity{
 
             //권한없으면 환경설정 들어감
             } else {
-                boolean isMyLocationEnabled = mMapLocationManager.enableMyLocation(true);
-                if (!isMyLocationEnabled) {
-                    Toast.makeText(FindNearLocationActivity.this, "환경설정에서 위치 정보 권한을 앱에 부여해주세요.",
-                            Toast.LENGTH_LONG).show();
 
-                    Intent goToSettings = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                    startActivity(goToSettings);
 
-                    return null;
+                int permssionCheck = ContextCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION);
+                if (permssionCheck!= PackageManager.PERMISSION_GRANTED) {
+
+                    Toast.makeText(this,"gps 권한 승인이 필요합니다",Toast.LENGTH_LONG).show();
+
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                            Manifest.permission.ACCESS_FINE_LOCATION)) {
+                        Toast.makeText(this,"gps 사용을 위해 위치권한이 필요합니다",Toast.LENGTH_LONG).show();
+                    } else {
+                        ActivityCompat.requestPermissions(this,
+                                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                                REQUEST_CODE_LOCATION);
+                        Toast.makeText(this,"gps 사용을 위해 위치권한이 필요합니다",Toast.LENGTH_LONG).show();
+
+                    }
                 }
+
+
+
+//                boolean isMyLocationEnabled = mMapLocationManager.enableMyLocation(true);
+//                if (!isMyLocationEnabled) {
+//                    Toast.makeText(FindNearLocationActivity.this, "환경설정에서 위치 정보 권한을 앱에 부여해주세요.",
+//                            Toast.LENGTH_LONG).show();
+//
+//                    Intent goToSettings = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+//                    startActivity(goToSettings);
+//
+//                    return null;
+//                }
             }
         }
 

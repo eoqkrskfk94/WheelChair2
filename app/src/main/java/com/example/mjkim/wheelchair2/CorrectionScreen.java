@@ -122,7 +122,7 @@ public class CorrectionScreen extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},0);
         }
-        setContentView(R.layout.activity_review_screen);
+        setContentView(R.layout.activity_correction_screen);
 
         storage=FirebaseStorage.getInstance();
         storageRef = storage.getReference();
