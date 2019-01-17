@@ -40,9 +40,9 @@ public class MenuScreen extends AppCompatActivity {
 //    }
 
     public void prepare(View v) {
-        Intent intent = new Intent(this, FindNearLocationActivity.class);
-        startActivity(intent);
-//        Toast.makeText(MenuScreen.this, "준비중입니다", Toast.LENGTH_SHORT).show();
+//        Intent intent = new Intent(this, FindNearLocationActivity.class);
+//        startActivity(intent);
+        Toast.makeText(MenuScreen.this, "준비중입니다", Toast.LENGTH_SHORT).show();
     }
 
 
