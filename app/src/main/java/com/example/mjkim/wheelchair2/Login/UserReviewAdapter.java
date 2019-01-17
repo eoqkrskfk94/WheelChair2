@@ -149,6 +149,7 @@ public class UserReviewAdapter extends BaseAdapter {
         System.out.println("\n 삭제테스트 1: "+ arr.get(a).getKey()+"  ");
         my_review_index--;
         Intent intent = new Intent(activity, MyReview.class);
+        m_activity.finish();
         m_activity.startActivity(intent);
 
     }
