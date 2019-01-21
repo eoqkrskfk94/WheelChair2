@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">앉심</string>
+    <string name="app_name">위맵</string>
     <string name="hello">Hello World, NMapViewer!</string>
     <string name="str_done">완료</string>
     <string name="NAVER_CLIENT_ID">N2qSBJ_r4RNYczKPYnHJ</string>
